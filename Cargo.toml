@@ -7,7 +7,7 @@ edition = "2018"
 
 [dependencies]
 rocket = { version = "0.5.0-rc.1", features = ["json"] }
-diesel = { version = "1.4.8", features = ["mysql", "extras", "chrono"] }
+diesel = { git = "https://github.com/diesel-rs/diesel", features = ["mysql", "extras", "chrono"] }
 dotenv = "0.15.0"
 serde = "1.0.130"
 serde_derive = "1.0.130"
