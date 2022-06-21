@@ -1,5 +1,5 @@
-FROM lukemathwalker/cargo-chef:latest-rust-1.53.0 AS chef
-WORKDIR app
+FROM lukemathwalker/cargo-chef:latest-rust-1.61.0 AS chef
+WORKDIR /app
 
 FROM chef AS planner
 COPY . .
@@ -13,7 +13,7 @@ RUN cargo chef cook --release --recipe-path recipe.json
 COPY . .
 RUN cargo install --path .
 
-FROM debian:buster-slim as runner
+FROM debian:bullseye-slim as runner
 RUN apt-get update -y
 RUN apt remove mysql-server
 RUN apt autoremove
